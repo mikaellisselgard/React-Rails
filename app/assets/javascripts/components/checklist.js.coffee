@@ -29,6 +29,7 @@
   handleStatus: (e) ->
     e.preventDefault()
     data =
+      id: React.findDOMNode(@refs.id).value
       title: React.findDOMNode(@refs.title).value
       done: React.findDOMNode(@refs.done).value = true
     $.ajax
@@ -66,6 +67,10 @@
           onClick: @handleStatus
           'Done'
         React.DOM.input
+          type: 'hidden'
+          defaultValue: @props.checklist.id
+          ref: 'id'
+        React.DOM.input
           className: 'form-control'
           type: 'hidden'
           defaultValue: @props.checklist.done
@@ -91,6 +96,10 @@
           ref: 'title'
         React.DOM.td null,
           'Done'
+          React.DOM.input
+              type: 'hidden'
+              defaultValue: @props.checklist.id
+              ref: 'id'
           React.DOM.input
             id: 'done'
             className: 'checkbox inline checkbox-fix'

@@ -40,4 +40,3 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass'
 gem 'react-rails'
-gem 'rename'
